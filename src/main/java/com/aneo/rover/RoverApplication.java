@@ -32,6 +32,7 @@ public class RoverApplication implements CommandLineRunner {
             throw new NoArgsException();
         }catch (Exception e3) {
             throw new FileException();
+
         }
     }
 }
