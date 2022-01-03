@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 public class RoverServiceImpl implements RoverService {
 
     @Override
-    public Rover landRover(String id, Plateau plateau, String dropInfo) {
-        Rover rover = new Rover(id);
+    public Rover landRover(Plateau plateau, String dropInfo) {
+        Rover rover = new Rover();
         rover.debarquer(plateau,  dropInfo);
         return rover;
     }

@@ -4,6 +4,6 @@ import com.aneo.rover.model.Plateau;
 import com.aneo.rover.model.Rover;
 
 public interface RoverService {
-    public Rover landRover(String id, Plateau plateau, String dropInfo);
+    public Rover landRover(Plateau plateau, String dropInfo);
 
 }

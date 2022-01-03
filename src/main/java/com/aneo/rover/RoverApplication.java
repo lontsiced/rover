@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
-public class RoverApplication implements CommandLineRunner {
+public class RoverApplication  implements CommandLineRunner{
     @Autowired
     PlateauService plateauService;
 
@@ -31,16 +31,16 @@ public class RoverApplication implements CommandLineRunner {
         SpringApplication.run(RoverApplication.class, args);
     }
 
-    @Override
+     @Override
     public void run(String... args) {
-        List<String> results = new ArrayList<>();
+       List<String> results = new ArrayList<>();
         try {
             // chargement et lecture du fichier recu en ontion de commande lors de lexecution du programme
             List<String> data = FileUtils.readTextFromJarCommand(args[0]);
             //creation du Plateau a base de la premiere ligne
             Plateau plateau = plateauService.createPlateau(data.get(0));;
             for (int i = 2; i < data.size(); i=i+2){
-              Rover rover = roverService.landRover(i-1+"",plateau,data.get(i-1));
+              Rover rover = roverService.landRover(plateau,data.get(i-1));
               // application des instructions recu par le rover
               rover.appliquerInstructions(new Instruction(data.get(i)).lectureInstructions());
               // sauvegarde de letat final dans la liste des resultats
